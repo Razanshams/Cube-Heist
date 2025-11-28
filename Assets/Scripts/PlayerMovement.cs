@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = MoveAction.ReadValue<Vector2>();
 
         // Convert 2D input to 3D movement
-        Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+        Vector3 move = new Vector3(-moveInput.x, 0f, -moveInput.y);
 
         // Move the player
         controller.Move(move * speed * Time.deltaTime);
