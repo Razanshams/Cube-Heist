@@ -107,8 +107,8 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
-        ((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
-        ((AudioSource)gameObject.GetComponent("AudioSource")).Play();
+        //((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
+        //((AudioSource)gameObject.GetComponent("AudioSource")).Play();
     }
 
     public void HideGameEndMenu()
@@ -122,7 +122,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        ((AudioSource)gameObject.GetComponent("AudioSource")).Stop();
+        //((AudioSource)gameObject.GetComponent("AudioSource")).Stop();
     }
 
     // Pause Menu methods
@@ -135,8 +135,8 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
-        ((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
-        ((AudioSource)gameObject.GetComponent("AudioSource")).Play();
+        //((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
+        //((AudioSource)gameObject.GetComponent("AudioSource")).Play();
     }
 
     public void HidePauseMenu()
