@@ -1,34 +1,46 @@
 using UnityEngine;
 
-public class GuardMovement : MonoBehaviour
-{
+public class GuardMovement : MonoBehaviour {
     public Transform leftPoint;
     public Transform rightPoint;
     public float speed = 2f;
 
     private Transform target;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+
+    void Start() {
         target = rightPoint;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 targetPos = new Vector3(target.position.x, transform.position.y, transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+    void Update() {
+        Vector3 targetPos = new Vector3(
+            target.position.x,
+            transform.position.y,
+            transform.position.z
+        );
 
+        // movement vector for this frame
+        Vector3 moveDir = (targetPos - transform.position).normalized;
 
-        if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
-        {
+        // move
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPos,
+            speed * Time.deltaTime
+        );
 
+        // rotate toward movement if moving
+        if (moveDir.sqrMagnitude > 0.0001f) {
+            Quaternion targetRot = Quaternion.LookRotation(moveDir);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRot,
+                0.15f
+            );
+        }
+
+        // swap patrol points
+        if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f) {
             target = target == rightPoint ? leftPoint : rightPoint;
-
-            /*if (target == rightPoint)
-                transform.rotation = Quaternion.Euler(0, 0, 0);   // face right
-            else
-                transform.rotation = Quaternion.Euler(0, 180, 0); // face left*/
         }
     }
 }
