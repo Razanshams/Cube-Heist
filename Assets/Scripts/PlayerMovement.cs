@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private CharacterController controller;
     private Vector2 moveInput;
+    private Animator anim;
 
     private void Awake() {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable() {
@@ -26,6 +28,8 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 move = new Vector3(-moveInput.x, 0f, -moveInput.y);
 
         controller.Move(move * speed * Time.deltaTime);
+
+        anim.speed = move.magnitude;
 
         RotateTowardsMovement(move);
     }
