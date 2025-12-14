@@ -12,7 +12,7 @@ public class GuardDetection : MonoBehaviour
 
     void Start()
     {
-        // Find the player
+        
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -20,7 +20,7 @@ public class GuardDetection : MonoBehaviour
             playerDeath = playerObj.GetComponent<PlayerDeath>();
         }
         
-        // Create visible cone
+        
         if (showVisualCone)
         {
             CreateVisualCone();
@@ -30,28 +30,28 @@ public class GuardDetection : MonoBehaviour
     void Update()
     {
         if (player == null || playerDeath == null) return;
-        if (playerDeath.IsDead()) return; // Don't detect if already dead
+        if (playerDeath.IsDead()) return; 
         
-        // Check if player is in detection zone
+        
         Vector3 directionToPlayer = player.position - transform.position;
         float distance = directionToPlayer.magnitude;
         
-        // Is player close enough?
+        
         if (distance <= detectionRange)
         {
-            // Calculate angle to player
+            
             float angle = Vector3.Angle(transform.forward, directionToPlayer);
             
-            // Is player in the cone?
+            
             if (angle <= detectionAngle)
             {
-                // CAUGHT!
+                
                 playerDeath.Die();
             }
         }
     }
 
-    // Shows the detection cone in the editor
+    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -67,27 +67,43 @@ public class GuardDetection : MonoBehaviour
     
     void CreateVisualCone()
     {
-        // Create a simple cube to represent the detection zone
-        visualCone = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        
+        visualCone = new GameObject("DetectionCone");
         visualCone.transform.SetParent(transform);
-        visualCone.transform.localPosition = new Vector3(0, 0, detectionRange / 2);
+        visualCone.transform.localPosition = Vector3.zero;
+        visualCone.transform.localRotation = Quaternion.identity;
         
-        // Calculate width based on angle at the far end of the cone
-        float widthAtEnd = 2f * detectionRange * Mathf.Tan(detectionAngle * Mathf.Deg2Rad);
+        MeshFilter meshFilter = visualCone.AddComponent<MeshFilter>();
+        MeshRenderer meshRenderer = visualCone.AddComponent<MeshRenderer>();
         
-        visualCone.transform.localScale = new Vector3(
-            widthAtEnd,
-            0.1f,
-            detectionRange
-        );
+      
+        Mesh mesh = new Mesh();
         
-        // Remove collider so it doesn't block anything
-        Destroy(visualCone.GetComponent<Collider>());
+        // Calculate the triangle points
+        float widthAtEnd = detectionRange * Mathf.Tan(detectionAngle * Mathf.Deg2Rad);
         
-        // Make it red - using Unlit shader which always works
-        Renderer renderer = visualCone.GetComponent<Renderer>();
+        Vector3[] vertices = new Vector3[3]
+        {
+            new Vector3(0, 0.05f, 0),                           
+            new Vector3(-widthAtEnd, 0.05f, detectionRange),   
+            new Vector3(widthAtEnd, 0.05f, detectionRange)     
+        };
+        
+        int[] triangles = new int[6]
+        {
+            0, 1, 2,  
+            0, 2, 1   
+        };
+        
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+        
+        meshFilter.mesh = mesh;
+        
+    
         Material mat = new Material(Shader.Find("Unlit/Color"));
-        mat.color = new Color(1f, 0f, 0f, 1f); // Bright red
-        renderer.material = mat;
+        mat.color = new Color(1f, 0f, 0f, 1f);
+        meshRenderer.material = mat;
     }
 }
