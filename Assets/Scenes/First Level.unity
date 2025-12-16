@@ -619,6 +619,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 879443750}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879443752}
     - targetCorrespondingSourceObject: {fileID: 8536400945726557719, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 147581273}
@@ -1214,6 +1217,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &879443752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879443746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed816754852fd1e4ca74d1de03ce32a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardDetection
+  detectionRange: 7.47
+  detectionAngle: 55.1
 --- !u!1 &888678694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1616,38 @@ MonoBehaviour:
   leftPoint: {fileID: 458302549}
   rightPoint: {fileID: 1044211438}
   speed: 4
+--- !u!114 &1077062303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077062299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed816754852fd1e4ca74d1de03ce32a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardDetection
+  detectionRange: 8.49
+  detectionAngle: 44.2
+--- !u!1 &1110743297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6789890916853663889, guid: 309b4ae570520c9468fa5e89f0b509c9, type: 3}
+  m_PrefabInstance: {fileID: 3199600171925723534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1110743300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110743297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b817efe0ebac90e4094a7632719d73a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
+  reloadDelay: 1.5
 --- !u!1 &1121138084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1077062301}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077062303}
   m_SourcePrefab: {fileID: 100100000, guid: f92cf7b2e3fe94e42b676f700c33d1a9, type: 3}
 --- !u!1 &1445969961
 GameObject:
@@ -3869,6 +3921,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6789890916853663889, guid: 309b4ae570520c9468fa5e89f0b509c9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6929499775874635095, guid: 309b4ae570520c9468fa5e89f0b509c9, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3936,7 +3992,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6789890916853663889, guid: 309b4ae570520c9468fa5e89f0b509c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1110743300}
   m_SourcePrefab: {fileID: 100100000, guid: 309b4ae570520c9468fa5e89f0b509c9, type: 3}
 --- !u!1001 &8781507659606837416
 PrefabInstance:
