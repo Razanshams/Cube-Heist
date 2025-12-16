@@ -18,7 +18,6 @@ public class GuardMovement : MonoBehaviour {
             transform.position.z
         );
 
-        // movement vector for this frame
         Vector3 moveDir = (targetPos - transform.position).normalized;
 
         // move
@@ -28,7 +27,7 @@ public class GuardMovement : MonoBehaviour {
             speed * Time.deltaTime
         );
 
-        // rotate toward movement if moving
+        
         if (moveDir.sqrMagnitude > 0.0001f) {
             Quaternion targetRot = Quaternion.LookRotation(moveDir);
             transform.rotation = Quaternion.Slerp(
@@ -38,7 +37,7 @@ public class GuardMovement : MonoBehaviour {
             );
         }
 
-        // swap patrol points
+        
         if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f) {
             target = target == rightPoint ? leftPoint : rightPoint;
         }

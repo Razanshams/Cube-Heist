@@ -19,18 +19,20 @@ public class PauseMenuController : MonoBehaviour
     private InputAction PauseAction;
 
     private bool isPaused = false;
+
+    public bool canPause = true;
     private Resolution[] resolutions;
 
     void Start()
     {
-        // Hide all menu panels by default
+        
         if (pauseMenuPanel != null) pauseMenuPanel.SetActive(false);
         if (optionsPanel != null) optionsPanel.SetActive(false);
         if (exitPanel != null) exitPanel.SetActive(false);
         if (creditsPanel != null) creditsPanel.SetActive(false);
         if (gameEndPanel != null) gameEndPanel.SetActive(false);
 
-        // --- Resolution Dropdown Setup ---
+        
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -50,7 +52,7 @@ public class PauseMenuController : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
         resolutionDropdown.onValueChanged.AddListener(SetResolution);
 
-        // --- Volume Slider Setup ---
+        
         float savedVolume = PlayerPrefs.GetFloat("GameVolume", 1f);
         volumeSlider.value = savedVolume;
         volumeSlider.onValueChanged.AddListener(SetVolume);
@@ -61,26 +63,26 @@ public class PauseMenuController : MonoBehaviour
 
     void Update()
     {
-        if (PauseAction.WasPressedThisFrame())
+       if (canPause && PauseAction.WasPressedThisFrame())
         {
             if (gameEndPanel != null && gameEndPanel.activeSelf)
-                return; // Prevent player from exiting Game End screen with escape
-            // Cancel Credits first if showing
+                return; 
+            
             else if (creditsPanel != null && creditsPanel.activeSelf)
             {
                 HideCredits();
             }
-            // Then Exit Panel
+            
             else if (exitPanel != null && exitPanel.activeSelf)
             {
                 HideExitPanel();
             }
-            // Then Options Panel
+           
             else if (optionsPanel != null && optionsPanel.activeSelf)
             {
                 CloseOptions();
             }
-            // Open/Close Pause Menu
+            
             else if (!isPaused)
             {
                 ShowPauseMenu();
@@ -107,8 +109,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
-        //((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
-        //((AudioSource)gameObject.GetComponent("AudioSource")).Play();
+       
     }
 
     public void HideGameEndMenu()
@@ -122,7 +123,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        //((AudioSource)gameObject.GetComponent("AudioSource")).Stop();
+       
     }
 
     // Pause Menu methods
@@ -135,8 +136,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
 
-        //((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).Pause();
-        //((AudioSource)gameObject.GetComponent("AudioSource")).Play();
+        
     }
 
     public void HidePauseMenu()
@@ -149,11 +149,10 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        //((AudioSource)GameObject.Find("GameMusic").GetComponent("AudioSource")).UnPause();
-        //((AudioSource)gameObject.GetComponent("AudioSource")).Stop();
+        
     }
 
-    // Options Panel
+    
     public void OpenOptions()
     {
         if (pauseMenuPanel != null) pauseMenuPanel.SetActive(false);
@@ -207,7 +206,7 @@ public class PauseMenuController : MonoBehaviour
 #endif
     }
 
-    // Credits Panel
+    
     public void ShowCredits()
     {
         if (pauseMenuPanel != null) pauseMenuPanel.SetActive(false);
@@ -224,7 +223,7 @@ public class PauseMenuController : MonoBehaviour
         if (creditsPanel != null) creditsPanel.SetActive(false);
     }
 
-    // Resolution & Volume
+    
     public void SetResolution(int resolutionIndex)
     {
         Resolution res = resolutions[resolutionIndex];
