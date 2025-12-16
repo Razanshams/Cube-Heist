@@ -2270,7 +2270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneDelay: 2.1
   AllScenes:
-  - 
+  - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/First Level.unity
 --- !u!114 &4074256196494226598
 MonoBehaviour:
   m_ObjectHideFlags: 0
