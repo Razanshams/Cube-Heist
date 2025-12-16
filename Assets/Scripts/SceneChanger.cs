@@ -79,6 +79,7 @@ public class SceneChanger : MonoBehaviour
             // and then load the new scene and set active.
             current_scene_index = scene_index;
             SceneManager.LoadScene(AllScenes[current_scene_index]);
+            pause_menu.HidePauseMenu();
         }
     }
 
