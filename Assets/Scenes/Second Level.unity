@@ -178,8 +178,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 15951825}
   m_SourcePrefab: {fileID: 100100000, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+--- !u!1 &15951824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+  m_PrefabInstance: {fileID: 15951823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &15951825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15951824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e0011e6067da64db13203d601c2fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSweep
+  maxAngle: 45
+  speed: 0.5
 --- !u!1 &17683998
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,8 +818,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 151898674}
   m_SourcePrefab: {fileID: 100100000, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+--- !u!1 &151898673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+  m_PrefabInstance: {fileID: 151898672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &151898674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151898673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e0011e6067da64db13203d601c2fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSweep
+  maxAngle: 45
+  speed: 0.5
 --- !u!1 &156077912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,8 +2958,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659496650}
   m_SourcePrefab: {fileID: 100100000, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+--- !u!1 &659496649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+  m_PrefabInstance: {fileID: 659496648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &659496650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659496649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e0011e6067da64db13203d601c2fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSweep
+  maxAngle: 45
+  speed: 0.5
 --- !u!1001 &771981249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5219,8 +5285,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1682134571}
   m_SourcePrefab: {fileID: 100100000, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+--- !u!1 &1682134570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758909521349045856, guid: 65ecdc434a8ceb047850562369934f6d, type: 3}
+  m_PrefabInstance: {fileID: 1682134569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1682134571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682134570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e0011e6067da64db13203d601c2fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSweep
+  maxAngle: 45
+  speed: 0.5
 --- !u!1 &1743797221
 GameObject:
   m_ObjectHideFlags: 0

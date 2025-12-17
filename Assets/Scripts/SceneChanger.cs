@@ -91,4 +91,14 @@ public class SceneChanger : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    public int GetCurrentSceneIndex()
+    {
+        return current_scene_index;
+    }
+
+    public int GetTotalScenes()
+    {
+        return AllScenes.Count();
+    }
 }

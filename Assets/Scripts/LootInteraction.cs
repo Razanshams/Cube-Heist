@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LootInteraction : MonoBehaviour
 {
-    public GameObject WinText;
+    // public GameObject WinText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +18,14 @@ public class LootInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>() != null)
-            WinText.SetActive(true);
+        {
+            SceneChanger changer = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
+
+            int i = changer.GetCurrentSceneIndex() + 1;
+            if (i < changer.GetTotalScenes())
+                changer.ChangeScene(i);
+            else
+                changer.ChangeScene(0);
+        }
     }
 }
